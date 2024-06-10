@@ -1,7 +1,7 @@
 import sys
 import time
 import argparse
-from helper_methods import clear_screen
+from .helper_methods import clear_screen
 
 
 def countdown(min):
@@ -39,7 +39,7 @@ def pomodoro(session_time=25, break_time=5):
             break
 
 
-def main():
+def run():
     parser = argparse.ArgumentParser(
         description="A python pomodoro timer for the terminal.",
         usage="pomo --session <time_in_min> --break <time_in_min>",
@@ -55,10 +55,14 @@ def main():
     pomodoro(session_time=session, break_time=breaks)
 
 
-if __name__ == "__main__":
+def main():
     try:
-        main()
+        run()
 
     except KeyboardInterrupt:
         print("\nTimer stopped. Bye :)\n")
         sys.exit()
+
+if __name__ == "__main__":
+    main()
+
